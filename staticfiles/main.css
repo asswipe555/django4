@@ -1,0 +1,66 @@
+*{
+  margin: 0;
+  padding: 0;
+
+}
+
+.header {
+    width: 100%;
+    height: 100vh;
+    background-image: url("./kesiki.png");
+    background-position: center;
+    background-size: cover;
+    
+}
+
+nav {
+    width: 100%;
+    padding: 20px 0px 0px;
+    text-align: center;
+    position:fixed;
+}
+
+.logo {
+    width: 150px;
+    margin: 0 10px 20px 10px;
+    cursor: pointer;
+    font-size: 3rem;
+    font-weight: 4000;
+    display: inline;
+    color: aliceblue;
+    
+}
+
+.uenonabi ul{
+    background-color: black;
+    margin-top: 10x;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.uenonabi ul li{
+    list-style: none;
+    margin: 20px 30px;
+
+}
+
+
+.uenonabi ul li a{
+    text-decoration: none;
+    color: white;
+}
+
+.text {
+    padding: 20px 10%;
+}
+
+.uenonabi.sticky{
+    position:fixed;
+    left: 0;
+    top: 0;
+    background-color: blanchedalmond;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+}
