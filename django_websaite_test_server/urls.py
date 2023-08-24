@@ -1,22 +1,28 @@
-"""django_websaite_test_server URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path, include
+from django.contrib.auth.decorators import login_required
+from website.views import IndexView
+from website.views import AboutView
+
+
+
+from django.views.generic import TemplateView
+
+# 実はページを表示するだけならこのように1行で書くことが出来ます。
+index_view = TemplateView.as_view(template_name="registration/homeindex.html")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include("website.urls"))
+    
+    # login_requiredで囲むとログイン必須のページになります。
+    path("", login_required(index_view), name="homeindex"),
+    # この１行でdjangoでデフォルトで用意している以下がすべて入ります。
+    # ・ログイン
+    # ・ログアウト
+    # ・パスワード変更
+    # ・パスワード再発行
+    path('', include("django.contrib.auth.urls")),
+    path('index/',IndexView.as_view(),name ="index"),
+    path('about/',AboutView.as_view(),name="about"),
+
 ]
