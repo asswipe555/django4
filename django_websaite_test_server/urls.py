@@ -1,9 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth.decorators import login_required
-from website.views import IndexView
-from website.views import AboutView
-
+from website import views
 
 
 from django.views.generic import TemplateView
@@ -22,7 +20,8 @@ urlpatterns = [
     # ・パスワード変更
     # ・パスワード再発行
     path('', include("django.contrib.auth.urls")),
-    path('index/',IndexView.as_view(),name ="index"),
-    path('about/',AboutView.as_view(),name="about"),
+    path('about/',views.AboutView.as_view(),name="about"),
+    path('signup/',views.SignUpView.as_view(),name="signup"),
+    path('index/',views.trello_view,name="web"),
 
 ]

@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'e9+*yrcfh7gpx)m&&x_^!szr=h6!&f2j1m-4)4$av$&8pu!u&q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -133,4 +133,4 @@ LOGOUT_REDIRECT_URL = "/login/"
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT = True
 
-
+AUTH_USER_MODEL ='website.User'
